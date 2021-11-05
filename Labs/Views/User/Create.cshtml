@@ -1,0 +1,82 @@
+﻿@using Labs.Models
+@model User
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+    <style>
+        #container {
+            width: 700px;
+            margin: 0 auto;
+        }
+    </style>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</head>
+<body>
+    <div id="container"> 
+        <h1>Add New User Page</h1>
+        <form action="/User/Create" method="post">
+            @*ID<input type="text" id="textID" class="form-control" />
+        First Name<input type="text" id="textFirstName" class="form-control" />
+        Last Name<input type="text" id="textLastName" class="form-control" />
+        Email<input type="email" id="email" class="form-control" />
+        UserName<input type="text" id="textUserName" class="form-control" />
+        Password<input type="password" id="password" class="form-control" />
+        <label> Gender </label>
+        Male<input type="radio" id="gender" value="Male" class="form-control" />
+        Female<input type="radio" id="gender" value="Female" class="form-control" />
+
+        <input type="submit" value="Register" class="btn-primary" />*@
+
+            @Html.DisplayNameFor(i => i.ID)
+            @Html.TextBoxFor(i => i.ID, new { @class = "form-control" })
+
+
+            @Html.DisplayNameFor(i => i.FirstName)
+            @Html.TextBoxFor(i => i.FirstName, new { @class = "form-control" })
+
+            @Html.DisplayNameFor(i => i.LastName)
+            @Html.TextBoxFor(i => i.LastName, new { @class = "form-control" })
+
+            @Html.DisplayNameFor(i => i.Email)
+            @Html.TextBoxFor(i => i.Email, new { @class = "form-control" })
+
+
+
+            @Html.DisplayNameFor(i => i.Password)
+            @Html.PasswordFor(i => i.Password, new { @class = "form-control" })
+
+
+
+            @Html.DisplayNameFor(i => i.UserName)
+            @Html.TextBoxFor(i => i.UserName, new { @class = "form-control" })
+
+
+            <label> Gender </label><br />
+            <label>Male</label>
+            @Html.RadioButtonFor(i => i.Gender, new { @class = "form-control" }, true)
+
+            <label>Female</label>
+            @Html.RadioButtonFor(i => i.Gender, new { @class = "form-control" }, false)
+
+
+
+
+
+            <input type="submit" value="Register" class="btn btn-secondary" />
+
+
+
+
+
+
+
+
+        </form>
+    </div>
+</body>
+</html>

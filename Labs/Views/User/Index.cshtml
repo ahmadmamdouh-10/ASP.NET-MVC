@@ -1,0 +1,78 @@
+﻿@using Labs.Models
+@model List<User>
+
+
+@helper ListOfUsers(List<User> users) 
+{ 
+int count = 0;
+<table>
+    <tr>
+        <td>#</td>
+        <td>ID</td>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Email</td>
+        <td>UserName</td>
+        <td>Password</td>
+        <td>Gender</td>
+    </tr>
+    @foreach (User U in users)
+    {
+        count++;
+
+<tr>
+    <td>@count</td>
+    <td>@U.ID</td>
+    <td>@U.FirstName</td>
+    <td>@U.LastName</td>
+    <td>@U.Email</td>
+    <td>@U.UserName</td>
+    <td>@U.Password</td>
+    @if (U.Gender == false)
+    {
+        <td>Male</td>
+    }
+    else
+    {
+        <td>Female</td>
+
+    }
+</tr>
+    }
+</table>
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        table {
+            width:600px; 
+            border: 1px dotted red;
+        }
+
+        tr {
+            border: 1px dotted red;
+        }
+
+        td{
+            color: darkred;
+            background-color:lightgray;
+            padding: 7px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>List of Users</h1>
+        @ListOfUsers(Model)
+
+        <br />
+        <a href="/User/Create"> Add New User</a>
+    </div>
+</body>
+</html>
